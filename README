@@ -1,0 +1,5 @@
+The goal of this project is to eventually solve a number of numerical problems with the flexibility of MATLAB/Mathematica with the speed of optimized C++/Assembly language. I'm currently still working out how to organize the project infrastructure, setting up data structures and the like. This is my main side project while I study computer science at university, so as I learn I will add to it. 
+
+The optimized assembly routines I'm planning will so far consist of only Intel x86 compatible code, as that is the only architecture I have experience writing for. I'm currently working on learning the x86-64 architecture as well as the FPU/AVX extensions. My current plan for this project is to write as many routines in C++ and Fortran to start, then begin the optimization in assembly.
+
+Pull requests are welcome. This is mostly a learning project for now, but I hope that it eventually becomes a legitimate -and free- option for anyone who cannot afford the thousands of dollars the other options cost. My goal is then to make this the highest performing numerical process library available.
