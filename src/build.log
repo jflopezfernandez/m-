@@ -1,0 +1,37 @@
+main.cpp:23:18: error: enclosing class of constexpr non-static member function 'int Point::getX() const' is not a literal type
+   constexpr real getX() const { return x; }
+                  ^~~~
+main.cpp:7:7: note: 'Point' is not literal because:
+ class Point {
+       ^~~~~
+main.cpp:7:7: note:   'Point' has a non-trivial destructor
+main.cpp:24:18: error: enclosing class of constexpr non-static member function 'int Point::getY() const' is not a literal type
+   constexpr real getY() const { return y; }
+                  ^~~~
+main.cpp:25:18: error: enclosing class of constexpr non-static member function 'int Point::getZ() const' is not a literal type
+   constexpr real getZ() const { return z; }
+                  ^~~~
+main.cpp:37:2: error: expected ';' after class definition
+ }
+  ^
+  ;
+main.cpp: In constructor 'LineSegment::LineSegment(const Point&, const Point&)':
+main.cpp:36:47: error: use of deleted function 'Point::Point()'
+   LineSegment(const Point& a, const Point& b) { std::cout << "Line segment constructor called...\n"; }
+                                               ^
+main.cpp:14:3: note: declared here
+   Point() = delete;
+   ^~~~~
+main.cpp:36:47: error: use of deleted function 'Point::Point()'
+   LineSegment(const Point& a, const Point& b) { std::cout << "Line segment constructor called...\n"; }
+                                               ^
+main.cpp:14:3: note: declared here
+   Point() = delete;
+   ^~~~~
+main.cpp:36:28: warning: unused parameter 'a' [-Wunused-parameter]
+   LineSegment(const Point& a, const Point& b) { std::cout << "Line segment constructor called...\n"; }
+                            ^
+main.cpp:36:44: warning: unused parameter 'b' [-Wunused-parameter]
+   LineSegment(const Point& a, const Point& b) { std::cout << "Line segment constructor called...\n"; }
+                                            ^
+make: *** [main.o] Error 1
