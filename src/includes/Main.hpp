@@ -24,6 +24,7 @@
 #include "Numeric_Double.hpp"
 
 #include "Point.hpp"
+#include "ShittyGraph.hpp"
 
 
 

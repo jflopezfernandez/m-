@@ -1,37 +1,266 @@
-main.cpp:23:18: error: enclosing class of constexpr non-static member function 'int Point::getX() const' is not a literal type
-   constexpr real getX() const { return x; }
-                  ^~~~
-main.cpp:7:7: note: 'Point' is not literal because:
- class Point {
-       ^~~~~
-main.cpp:7:7: note:   'Point' has a non-trivial destructor
-main.cpp:24:18: error: enclosing class of constexpr non-static member function 'int Point::getY() const' is not a literal type
-   constexpr real getY() const { return y; }
-                  ^~~~
-main.cpp:25:18: error: enclosing class of constexpr non-static member function 'int Point::getZ() const' is not a literal type
-   constexpr real getZ() const { return z; }
-                  ^~~~
-main.cpp:37:2: error: expected ';' after class definition
- }
-  ^
-  ;
-main.cpp: In constructor 'LineSegment::LineSegment(const Point&, const Point&)':
-main.cpp:36:47: error: use of deleted function 'Point::Point()'
-   LineSegment(const Point& a, const Point& b) { std::cout << "Line segment constructor called...\n"; }
-                                               ^
-main.cpp:14:3: note: declared here
-   Point() = delete;
-   ^~~~~
-main.cpp:36:47: error: use of deleted function 'Point::Point()'
-   LineSegment(const Point& a, const Point& b) { std::cout << "Line segment constructor called...\n"; }
-                                               ^
-main.cpp:14:3: note: declared here
-   Point() = delete;
-   ^~~~~
-main.cpp:36:28: warning: unused parameter 'a' [-Wunused-parameter]
-   LineSegment(const Point& a, const Point& b) { std::cout << "Line segment constructor called...\n"; }
+In file included from includes\Main.hpp:22:0,
+                 from main.cpp:2:
+includes\Number.hpp:12:22: error: expected ';' at end of member declaration
+   Number(int a, int b) num(a), den(b) { }
+                      ^
+includes\Number.hpp:12:28: error: 'a' has not been declared
+   Number(int a, int b) num(a), den(b) { }
                             ^
-main.cpp:36:44: warning: unused parameter 'b' [-Wunused-parameter]
-   LineSegment(const Point& a, const Point& b) { std::cout << "Line segment constructor called...\n"; }
-                                            ^
+includes\Number.hpp:12:30: error: 'int Number::num(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                              ^
+includes\Number.hpp:7:7: note: previous declaration 'int Number::num'
+   int num;
+       ^~~
+includes\Number.hpp:12:36: error: 'b' has not been declared
+   Number(int a, int b) num(a), den(b) { }
+                                    ^
+includes\Number.hpp:12:41: error: 'int Number::den(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp:8:7: note: previous declaration 'int Number::den'
+   int den;
+       ^~~
+includes\Number.hpp:19:17: error: enclosing class of constexpr non-static member function 'int Number::getNum() const' is not a literal type
+   constexpr int getNum() const { return num; }
+                 ^~~~~~
+includes\Number.hpp:5:7: note: 'Number' is not literal because:
+ class Number {
+       ^~~~~~
+includes\Number.hpp:5:7: note:   'Number' has a non-trivial destructor
+includes\Number.hpp:20:17: error: enclosing class of constexpr non-static member function 'int Number::getDen() const' is not a literal type
+   constexpr int getDen() const { return den; }
+                 ^~~~~~
+includes\Number.hpp: In member function 'int Number::den(int)':
+includes\Number.hpp:12:41: warning: no return statement in function returning non-void [-Wreturn-type]
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp: In member function 'void Number::setNum(int)':
+includes\Number.hpp:16:24: error: invalid use of member 'int Number::num(int)' (did you forget the '&' ?)
+   void setNum(int n) { num = n; }
+                        ^~~
+includes\Number.hpp: In member function 'void Number::setDen(int)':
+includes\Number.hpp:17:24: error: invalid use of member 'int Number::den(int)' (did you forget the '&' ?)
+   void setDen(int n) { den = n; }
+                        ^~~
+includes\Number.hpp: In member function 'int Number::getNum() const':
+includes\Number.hpp:19:41: error: cannot convert 'Number::num' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getNum() const { return num; }
+                                         ^~~
+includes\Number.hpp: In member function 'int Number::getDen() const':
+includes\Number.hpp:20:41: error: cannot convert 'Number::den' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getDen() const { return den; }
+                                         ^~~
+In file included from includes\Main.hpp:22:0,
+                 from point.cpp:2:
+includes\Number.hpp:12:22: error: expected ';' at end of member declaration
+   Number(int a, int b) num(a), den(b) { }
+                      ^
+includes\Number.hpp:12:28: error: 'a' has not been declared
+   Number(int a, int b) num(a), den(b) { }
+                            ^
+includes\Number.hpp:12:30: error: 'int Number::num(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                              ^
+includes\Number.hpp:7:7: note: previous declaration 'int Number::num'
+   int num;
+       ^~~
+includes\Number.hpp:12:36: error: 'b' has not been declared
+   Number(int a, int b) num(a), den(b) { }
+                                    ^
+includes\Number.hpp:12:41: error: 'int Number::den(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp:8:7: note: previous declaration 'int Number::den'
+   int den;
+       ^~~
+includes\Number.hpp:19:17: error: enclosing class of constexpr non-static member function 'int Number::getNum() const' is not a literal type
+   constexpr int getNum() const { return num; }
+                 ^~~~~~
+includes\Number.hpp:5:7: note: 'Number' is not literal because:
+ class Number {
+       ^~~~~~
+includes\Number.hpp:5:7: note:   'Number' has a non-trivial destructor
+includes\Number.hpp:20:17: error: enclosing class of constexpr non-static member function 'int Number::getDen() const' is not a literal type
+   constexpr int getDen() const { return den; }
+                 ^~~~~~
+includes\Number.hpp: In member function 'int Number::den(int)':
+includes\Number.hpp:12:41: warning: no return statement in function returning non-void [-Wreturn-type]
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp: In member function 'void Number::setNum(int)':
+includes\Number.hpp:16:24: error: invalid use of member 'int Number::num(int)' (did you forget the '&' ?)
+   void setNum(int n) { num = n; }
+                        ^~~
+includes\Number.hpp: In member function 'void Number::setDen(int)':
+includes\Number.hpp:17:24: error: invalid use of member 'int Number::den(int)' (did you forget the '&' ?)
+   void setDen(int n) { den = n; }
+                        ^~~
+includes\Number.hpp: In member function 'int Number::getNum() const':
+includes\Number.hpp:19:41: error: cannot convert 'Number::num' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getNum() const { return num; }
+                                         ^~~
+includes\Number.hpp: In member function 'int Number::getDen() const':
+includes\Number.hpp:20:41: error: cannot convert 'Number::den' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getDen() const { return den; }
+                                         ^~~
+In file included from includes\Main.hpp:22:0,
+                 from numeric_int.cpp:2:
+includes\Number.hpp:12:22: error: expected ';' at end of member declaration
+   Number(int a, int b) num(a), den(b) { }
+                      ^
+includes\Number.hpp:12:28: error: 'a' has not been declared
+   Number(int a, int b) num(a), den(b) { }
+                            ^
+includes\Number.hpp:12:30: error: 'int Number::num(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                              ^
+includes\Number.hpp:7:7: note: previous declaration 'int Number::num'
+   int num;
+       ^~~
+includes\Number.hpp:12:36: error: 'b' has not been declared
+   Number(int a, int b) num(a), den(b) { }
+                                    ^
+includes\Number.hpp:12:41: error: 'int Number::den(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp:8:7: note: previous declaration 'int Number::den'
+   int den;
+       ^~~
+includes\Number.hpp:19:17: error: enclosing class of constexpr non-static member function 'int Number::getNum() const' is not a literal type
+   constexpr int getNum() const { return num; }
+                 ^~~~~~
+includes\Number.hpp:5:7: note: 'Number' is not literal because:
+ class Number {
+       ^~~~~~
+includes\Number.hpp:5:7: note:   'Number' has a non-trivial destructor
+includes\Number.hpp:20:17: error: enclosing class of constexpr non-static member function 'int Number::getDen() const' is not a literal type
+   constexpr int getDen() const { return den; }
+                 ^~~~~~
+includes\Number.hpp: In member function 'int Number::den(int)':
+includes\Number.hpp:12:41: warning: no return statement in function returning non-void [-Wreturn-type]
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp: In member function 'void Number::setNum(int)':
+includes\Number.hpp:16:24: error: invalid use of member 'int Number::num(int)' (did you forget the '&' ?)
+   void setNum(int n) { num = n; }
+                        ^~~
+includes\Number.hpp: In member function 'void Number::setDen(int)':
+includes\Number.hpp:17:24: error: invalid use of member 'int Number::den(int)' (did you forget the '&' ?)
+   void setDen(int n) { den = n; }
+                        ^~~
+includes\Number.hpp: In member function 'int Number::getNum() const':
+includes\Number.hpp:19:41: error: cannot convert 'Number::num' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getNum() const { return num; }
+                                         ^~~
+includes\Number.hpp: In member function 'int Number::getDen() const':
+includes\Number.hpp:20:41: error: cannot convert 'Number::den' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getDen() const { return den; }
+                                         ^~~
+In file included from includes\Main.hpp:22:0,
+                 from utils.cpp:2:
+includes\Number.hpp:12:22: error: expected ';' at end of member declaration
+   Number(int a, int b) num(a), den(b) { }
+                      ^
+includes\Number.hpp:12:28: error: 'a' has not been declared
+   Number(int a, int b) num(a), den(b) { }
+                            ^
+includes\Number.hpp:12:30: error: 'int Number::num(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                              ^
+includes\Number.hpp:7:7: note: previous declaration 'int Number::num'
+   int num;
+       ^~~
+includes\Number.hpp:12:36: error: 'b' has not been declared
+   Number(int a, int b) num(a), den(b) { }
+                                    ^
+includes\Number.hpp:12:41: error: 'int Number::den(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp:8:7: note: previous declaration 'int Number::den'
+   int den;
+       ^~~
+includes\Number.hpp:19:17: error: enclosing class of constexpr non-static member function 'int Number::getNum() const' is not a literal type
+   constexpr int getNum() const { return num; }
+                 ^~~~~~
+includes\Number.hpp:5:7: note: 'Number' is not literal because:
+ class Number {
+       ^~~~~~
+includes\Number.hpp:5:7: note:   'Number' has a non-trivial destructor
+includes\Number.hpp:20:17: error: enclosing class of constexpr non-static member function 'int Number::getDen() const' is not a literal type
+   constexpr int getDen() const { return den; }
+                 ^~~~~~
+includes\Number.hpp: In member function 'int Number::den(int)':
+includes\Number.hpp:12:41: warning: no return statement in function returning non-void [-Wreturn-type]
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp: In member function 'void Number::setNum(int)':
+includes\Number.hpp:16:24: error: invalid use of member 'int Number::num(int)' (did you forget the '&' ?)
+   void setNum(int n) { num = n; }
+                        ^~~
+includes\Number.hpp: In member function 'void Number::setDen(int)':
+includes\Number.hpp:17:24: error: invalid use of member 'int Number::den(int)' (did you forget the '&' ?)
+   void setDen(int n) { den = n; }
+                        ^~~
+includes\Number.hpp: In member function 'int Number::getNum() const':
+includes\Number.hpp:19:41: error: cannot convert 'Number::num' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getNum() const { return num; }
+                                         ^~~
+includes\Number.hpp: In member function 'int Number::getDen() const':
+includes\Number.hpp:20:41: error: cannot convert 'Number::den' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getDen() const { return den; }
+                                         ^~~
+In file included from includes\Main.hpp:22:0,
+                 from number.cpp:2:
+includes\Number.hpp:12:22: error: expected ';' at end of member declaration
+   Number(int a, int b) num(a), den(b) { }
+                      ^
+includes\Number.hpp:12:28: error: 'a' has not been declared
+   Number(int a, int b) num(a), den(b) { }
+                            ^
+includes\Number.hpp:12:30: error: 'int Number::num(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                              ^
+includes\Number.hpp:7:7: note: previous declaration 'int Number::num'
+   int num;
+       ^~~
+includes\Number.hpp:12:36: error: 'b' has not been declared
+   Number(int a, int b) num(a), den(b) { }
+                                    ^
+includes\Number.hpp:12:41: error: 'int Number::den(int)' conflicts with a previous declaration
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp:8:7: note: previous declaration 'int Number::den'
+   int den;
+       ^~~
+includes\Number.hpp:19:17: error: enclosing class of constexpr non-static member function 'int Number::getNum() const' is not a literal type
+   constexpr int getNum() const { return num; }
+                 ^~~~~~
+includes\Number.hpp:5:7: note: 'Number' is not literal because:
+ class Number {
+       ^~~~~~
+includes\Number.hpp:5:7: note:   'Number' has a non-trivial destructor
+includes\Number.hpp:20:17: error: enclosing class of constexpr non-static member function 'int Number::getDen() const' is not a literal type
+   constexpr int getDen() const { return den; }
+                 ^~~~~~
+includes\Number.hpp: In member function 'int Number::den(int)':
+includes\Number.hpp:12:41: warning: no return statement in function returning non-void [-Wreturn-type]
+   Number(int a, int b) num(a), den(b) { }
+                                         ^
+includes\Number.hpp: In member function 'void Number::setNum(int)':
+includes\Number.hpp:16:24: error: invalid use of member 'int Number::num(int)' (did you forget the '&' ?)
+   void setNum(int n) { num = n; }
+                        ^~~
+includes\Number.hpp: In member function 'void Number::setDen(int)':
+includes\Number.hpp:17:24: error: invalid use of member 'int Number::den(int)' (did you forget the '&' ?)
+   void setDen(int n) { den = n; }
+                        ^~~
+includes\Number.hpp: In member function 'int Number::getNum() const':
+includes\Number.hpp:19:41: error: cannot convert 'Number::num' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getNum() const { return num; }
+                                         ^~~
+includes\Number.hpp: In member function 'int Number::getDen() const':
+includes\Number.hpp:20:41: error: cannot convert 'Number::den' from type 'int (Number::)(int)' to type 'int'
+   constexpr int getDen() const { return den; }
+                                         ^~~
 make: *** [main.o] Error 1

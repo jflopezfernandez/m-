@@ -8,7 +8,7 @@ void clearScreen() {
 
 
 void printCPPStandard() {
-	printf("%li\n", __cplusplus);
+	printf("C++ Standard Version: %li\n", __cplusplus);
 }
 
 

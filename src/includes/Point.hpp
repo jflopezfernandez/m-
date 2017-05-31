@@ -9,7 +9,7 @@ class Point {
 			z;
 	
 	public:
-		Point() { }
+		Point() : x(0), y(0), z(0) { }
 		constexpr Point(int a, int b, int c) : x(a), y(b), z(c) { }
 	
 		void setX(int n) { x = n; }

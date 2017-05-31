@@ -3,5 +3,5 @@
 
 
 void Point::print() const {
-	printf("(%i,%i,%i)\n",getX(),getY(),getZ());
+	printf("(%i,%i,%i)\n", getX(), getY(), getZ());
 }

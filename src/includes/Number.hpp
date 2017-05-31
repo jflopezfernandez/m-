@@ -8,16 +8,14 @@ class Number {
 		int den;
 		
 	public:
-		Number() = delete;
-		Number(int a, int b) num(a), den(b) { }
-		
-		~Number();
+		Number();
+		Number(int a, int b) : num(a), den(b) { }
 		
 		void setNum(int n) { num = n; }
 		void setDen(int n) { den = n; }
 		
-		constexpr int getNum() const { return num; }
-		constexpr int getDen() const { return den; }
+		int getNum() const { return num; }
+		int getDen() const { return den; }
 		
 		void print();
 };
