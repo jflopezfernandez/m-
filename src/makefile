@@ -1,5 +1,5 @@
 CPP := g++
-CPPFLAGS :=-std=c++17 -Wall -Wextra
+CPPFLAGS :=-std=c++17 -fpermissive
 
 PROGRAM := test
 
