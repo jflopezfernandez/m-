@@ -13,30 +13,24 @@ struct _equationNode {
 
 //void printEquation(struct _equationNode *head);
 
+const int DIMENSION = 10;
+
 
 int main()
 {
 	initializeProgram();
 	
-	int m, n;
-	fprintf(stdout, "Please enter two numbers: ");
-	fscanf(stdin, "%i %i", &m, &n);
 	FILE *fp = fopen("test.dat", "w");
 	
-	int r = m % n;
-	
-	fprintf(fp, "r = %i, m = %i, n = %i\n", r, m, n);
-	
-	while (r != 0) {
-		m = n;
-		n = r;
-		
-		r = m % n;
-		
-		fprintf(fp, "r = %i, m = %i, n = %i\n", r, m, n);
+	for (int i = 0; i < DIMENSION; ++i) {
+		for (int j = 0; j < DIMENSION; ++j) {
+			fprintf(fp, "%2i ", i + j);
+		}
+		fprintf(fp, "\n");
 	}
 	
 	fclose(fp);
+	
 	/*
 	struct _equationNode n1;
 	n1.value.d = 1.5;
